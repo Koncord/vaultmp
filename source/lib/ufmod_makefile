@@ -1,2 +1,2 @@
 all:
-	ar rv ufmod\\libufmod.a ufmod\\ufmod.obj
+	ar rv ufmod/libufmod.a ufmod/ufmod.obj

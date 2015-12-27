@@ -8,7 +8,7 @@ LD = g++
 
 
 INC = -I.
-CFLAGS =
+CFLAGS = -m32
 CFLAGSEXT = 
 
 INC_RELEASE = $(INC)

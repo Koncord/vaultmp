@@ -5,9 +5,9 @@ CXX = g++
 AR = ar
 LD = g++
 
-INC =
+INC = -I./amx -I./amx/linux
 CFLAGS = -fPIC -pedantic-errors -pedantic -Wfatal-errors -Wextra -Wall -std=gnu++1y -m32
-CFLAGSEXT =-m32 -w
+CFLAGSEXT = -w
 RESINC =
 LIBDIR =
 LIB =
@@ -37,20 +37,20 @@ RCFLAGS_RELEASE = $(RCFLAGS)
 LIBDIR_RELEASE = $(LIBDIR)
 LIB_RELEASE = $(LIB)
 LDFLAGS_RELEASE = -s $(LDFLAGS)
-OBJDIR_RELEASE = .objs\\amx\Release
+OBJDIR_RELEASE = .objs/amx/Release
 DEP_RELEASE =
-OUT_RELEASE = amx\libamx.a
+OUT_RELEASE = amx/libamx.a
 
 OBJ_RELEASE = \
-$(OBJDIR_RELEASE)\\amxexec_gcc.o \
-$(OBJDIR_RELEASE)\\amxcore.o \
-$(OBJDIR_RELEASE)\\amxfile.o \
-$(OBJDIR_RELEASE)\\amxcons.o \
-$(OBJDIR_RELEASE)\\amxstring.o \
-$(OBJDIR_RELEASE)\\amxtime.o \
-$(OBJDIR_RELEASE)\\float.o \
-$(OBJDIR_RELEASE)\\amxaux.o \
-$(OBJDIR_RELEASE)\\amx.o \
+$(OBJDIR_RELEASE)/amxexec_gcc.o \
+$(OBJDIR_RELEASE)/amxcore.o \
+$(OBJDIR_RELEASE)/amxfile.o \
+$(OBJDIR_RELEASE)/amxcons.o \
+$(OBJDIR_RELEASE)/amxstring.o \
+$(OBJDIR_RELEASE)/amxtime.o \
+$(OBJDIR_RELEASE)/float.o \
+$(OBJDIR_RELEASE)/amxaux.o \
+$(OBJDIR_RELEASE)/amx.o \
 
 all: release
 
@@ -70,32 +70,32 @@ release: before_release out_release after_release
 out_release: $(OBJ_RELEASE) $(DEP_RELEASE)
 	$(AR) -rv $(OUT_RELEASE) $(OBJ_RELEASE)
 
-$(OBJDIR_RELEASE)\\amxexec_gcc.o: amx/amxexec_gcc.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxexec_gcc.c -o $(OBJDIR_RELEASE)\\amxexec_gcc.o
+$(OBJDIR_RELEASE)/amxexec_gcc.o: amx/amxexec_gcc.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxexec_gcc.c -o $(OBJDIR_RELEASE)/amxexec_gcc.o
 
-$(OBJDIR_RELEASE)\\amxcore.o: amx/amxcore.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxcore.c -o $(OBJDIR_RELEASE)\\amxcore.o
+$(OBJDIR_RELEASE)/amxcore.o: amx/amxcore.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxcore.c -o $(OBJDIR_RELEASE)/amxcore.o
 
-$(OBJDIR_RELEASE)\\amxfile.o: amx/amxfile.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxfile.c -o $(OBJDIR_RELEASE)\\amxfile.o
+$(OBJDIR_RELEASE)/amxfile.o: amx/amxfile.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxfile.c -o $(OBJDIR_RELEASE)/amxfile.o
 
-$(OBJDIR_RELEASE)\\amxcons.o: amx/amxcons.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxcons.c -o $(OBJDIR_RELEASE)\\amxcons.o
+$(OBJDIR_RELEASE)/amxcons.o: amx/amxcons.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxcons.c -o $(OBJDIR_RELEASE)/amxcons.o
 
-$(OBJDIR_RELEASE)\\amxstring.o: amx/amxstring.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxstring.c -o $(OBJDIR_RELEASE)\\amxstring.o
+$(OBJDIR_RELEASE)/amxstring.o: amx/amxstring.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxstring.c -o $(OBJDIR_RELEASE)/amxstring.o
 
-$(OBJDIR_RELEASE)\\amxtime.o: amx/amxtime.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxtime.c -o $(OBJDIR_RELEASE)\\amxtime.o
+$(OBJDIR_RELEASE)/amxtime.o: amx/amxtime.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxtime.c -o $(OBJDIR_RELEASE)/amxtime.o
 
-$(OBJDIR_RELEASE)\\float.o: amx/float.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/float.c -o $(OBJDIR_RELEASE)\\float.o
+$(OBJDIR_RELEASE)/float.o: amx/float.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/float.c -o $(OBJDIR_RELEASE)/float.o
 
-$(OBJDIR_RELEASE)\\amxaux.o: amx/amxaux.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxaux.c -o $(OBJDIR_RELEASE)\\amxaux.o
+$(OBJDIR_RELEASE)/amxaux.o: amx/amxaux.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amxaux.c -o $(OBJDIR_RELEASE)/amxaux.o
 
-$(OBJDIR_RELEASE)\\amx.o: amx/amx.c
-	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amx.c -o $(OBJDIR_RELEASE)\\amx.o
+$(OBJDIR_RELEASE)/amx.o: amx/amx.c
+	$(CC) $(CFLAGSEXT_RELEASE) $(INC_RELEASE) -c amx/amx.c -o $(OBJDIR_RELEASE)/amx.o
 
 clean_release:
 ifneq ($(wildcard $(call FixPath,$(OUT_RELEASE))),)

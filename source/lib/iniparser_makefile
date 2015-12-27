@@ -8,7 +8,7 @@ LD = g++
 
 
 INC = -I.
-CFLAGS = -Wall -ansi -pedantic
+CFLAGS = -Wall -ansi -pedantic -m32
 CFLAGSEXT = -fPIC
 
 INC_RELEASE = $(INC)
