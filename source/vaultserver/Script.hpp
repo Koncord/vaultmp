@@ -30,6 +30,7 @@
 #include <memory>
 #include <chrono>
 #include <regex>
+#include <stack>
 
 template<typename T> struct sizeof_void { enum { value = sizeof(T) }; };
 template<> struct sizeof_void<void> { enum { value = 0 }; };
@@ -649,7 +650,7 @@ class Script
 		}
 
 		template<unsigned int I, bool B = false, typename... Args>
-		static unsigned int Call(CBR<I>& result, Args&&... args) {
+		static unsigned int Call(std::stack<CBR<I>&> result, Args&&... args) {
 			constexpr ScriptCallbackData const& data = CBD(I);
 			static_assert(data.callback.matches(TypeString<typename std::remove_reference<Args>::type...>::value), "Wrong number or types of arguments");
 
@@ -666,9 +667,9 @@ class Script
 					continue;
 
 				if (script->cpp_script)
-					result = reinterpret_cast<FunctionEllipsis<CBR<I>>>(callback)(std::forward<Args>(args)...);
+					result.push(reinterpret_cast<FunctionEllipsis<CBR<I>>>(callback)(std::forward<Args>(args)...));
 				else
-					result = static_cast<CBR<I>>(PAWN::Call(script->amx, data.name, data.callback.types, B, std::forward<Args>(args)...));
+					result.push(static_cast<CBR<I>>(PAWN::Call(script->amx, data.name, data.callback.types, B, std::forward<Args>(args)...)));
 
 				++count;
 			}
