@@ -6,21 +6,6 @@
 #include "Guarded.hpp"
 #include "Utils.hpp"
 
-#ifdef VAULTSERVER
-#include "vaultserver/Database.hpp"
-#include "vaultserver/Record.hpp"
-#include "vaultserver/Reference.hpp"
-#include "vaultserver/Exterior.hpp"
-#include "vaultserver/Weapon.hpp"
-#include "vaultserver/Race.hpp"
-#include "vaultserver/NPC.hpp"
-#include "vaultserver/BaseContainer.hpp"
-#include "vaultserver/Item.hpp"
-#include "vaultserver/Terminal.hpp"
-#include "vaultserver/Interior.hpp"
-#include "vaultserver/AcReference.hpp"
-#endif
-
 #ifdef VAULTMP_DEBUG
 #include "Debug.hpp"
 #endif
@@ -66,20 +51,6 @@ class GameFactory
 		static BaseIndex index;
 		static BaseCount typecount;
 		static BaseDeleted delrefs;
-
-#ifdef VAULTSERVER
-		static Database<DB::Record> dbRecords;
-		static Database<DB::Reference> dbReferences;
-		static Database<DB::Exterior> dbExteriors;
-		static Database<DB::Weapon> dbWeapons;
-		static Database<DB::Race> dbRaces;
-		static Database<DB::NPC> dbNpcs;
-		static Database<DB::BaseContainer> dbContainers;
-		static Database<DB::Item> dbItems;
-		static Database<DB::Terminal> dbTerminals;
-		static Database<DB::Interior> dbInteriors;
-		static Database<DB::AcReference> dbAcReferences;
-#endif
 
 		inline static BaseList::iterator GetShared(RakNet::NetworkID id) { return index.count(id) ? index[id] : instances.end(); }
 
@@ -195,8 +166,6 @@ class GameFactory
 		struct Create_;
 
 	public:
-		static void Initialize();
-
 		/**
 		 * \brief Obtains a lock on a Base
 		 */

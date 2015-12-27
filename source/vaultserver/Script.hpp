@@ -6,6 +6,7 @@
 #include "ItemList.hpp"
 #include "ScriptFunction.hpp"
 #include "GameFactory.hpp"
+#include "ObjectFactory.hpp"
 #include "../Item.hpp"
 #include "Player.hpp"
 #include "../components/Button.hpp"

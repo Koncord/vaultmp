@@ -81,6 +81,8 @@
 		<Unit filename="Pipe.cpp" />
 		<Unit filename="Pipe.hpp" />
 		<Unit filename="RakNet.hpp" />
+		<Unit filename="ServerEntry.cpp" />
+		<Unit filename="ServerEntry.hpp" />
 		<Unit filename="Shared.hpp" />
 		<Unit filename="Utils.cpp" />
 		<Unit filename="Utils.hpp" />

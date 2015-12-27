@@ -42,7 +42,7 @@ OUT_RELEASE = vaultmp.exe
 
 OBJ_DEBUG = \
 $(OBJDIR_DEBUG)\\lib\\stack_trace\\src\\stack.o \
-$(OBJDIR_DEBUG)\\ServerEntry.o \
+$(OBJDIR_DEBUG)\\Pipe.o \
 $(OBJDIR_DEBUG)\\Reference.o \
 $(OBJDIR_DEBUG)\\vaultmp.o \
 $(OBJDIR_DEBUG)\\vaultmprc.o \
@@ -69,7 +69,7 @@ $(OBJDIR_DEBUG)\\components\\ListItem.o \
 $(OBJDIR_DEBUG)\\components\\List.o
 
 OBJ_RELEASE = \
-$(OBJDIR_RELEASE)\\ServerEntry.o \
+$(OBJDIR_RELEASE)\\Pipe.o \
 $(OBJDIR_RELEASE)\\Reference.o \
 $(OBJDIR_RELEASE)\\vaultmp.o \
 $(OBJDIR_RELEASE)\\vaultmprc.o \
@@ -114,8 +114,8 @@ out_debug: $(OBJ_DEBUG) $(DEP_DEBUG)
 $(OBJDIR_DEBUG)\\lib\\stack_trace\\src\\stack.o: lib\\stack_trace\\src\\stack.cpp
 	$(CXX) $(CFLAGSEXT_DEBUG) $(INC_DEBUG) -c lib\\stack_trace\\src\\stack.cpp -o $(OBJDIR_DEBUG)\\lib\\stack_trace\\src\\stack.o
 
-$(OBJDIR_DEBUG)\\ServerEntry.o: ServerEntry.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c ServerEntry.cpp -o $(OBJDIR_DEBUG)\\ServerEntry.o
+$(OBJDIR_DEBUG)\\Pipe.o: Pipe.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Pipe.cpp -o $(OBJDIR_DEBUG)\\Pipe.o
 
 $(OBJDIR_DEBUG)\\Reference.o: Reference.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Reference.cpp -o $(OBJDIR_DEBUG)\\Reference.o
@@ -202,8 +202,8 @@ release: before_release out_release after_release
 out_release: $(OBJ_RELEASE) $(DEP_RELEASE)
 	$(LD) $(LIBDIR_RELEASE) $(OBJ_RELEASE) $(LIB_RELEASE) -o $(OUT_RELEASE) $(LDFLAGS_RELEASE)
 
-$(OBJDIR_RELEASE)\\ServerEntry.o: ServerEntry.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ServerEntry.cpp -o $(OBJDIR_RELEASE)\\ServerEntry.o
+$(OBJDIR_RELEASE)\\Pipe.o: Pipe.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Pipe.cpp -o $(OBJDIR_RELEASE)\\Pipe.o
 
 $(OBJDIR_RELEASE)\\Reference.o: Reference.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Reference.cpp -o $(OBJDIR_RELEASE)\\Reference.o

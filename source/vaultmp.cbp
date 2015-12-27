@@ -104,13 +104,13 @@
 		<Unit filename="NetworkClient.hpp" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.hpp" />
+		<Unit filename="Pipe.cpp" />
+		<Unit filename="Pipe.hpp" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.hpp" />
 		<Unit filename="Reference.cpp" />
 		<Unit filename="Reference.hpp" />
 		<Unit filename="ReferenceTypes.hpp" />
-		<Unit filename="ServerEntry.cpp" />
-		<Unit filename="ServerEntry.hpp" />
 		<Unit filename="components/Button.cpp" />
 		<Unit filename="components/Button.hpp" />
 		<Unit filename="components/Checkbox.cpp" />

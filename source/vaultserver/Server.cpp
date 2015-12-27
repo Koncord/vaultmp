@@ -586,7 +586,7 @@ NetworkResponse Server::ChatMessage(RakNetGUID guid, const string& message)
 	NetworkResponse response;
 
 	char _message[MAX_CHAT_LENGTH + 1];
-	ZeroMemory(_message, sizeof(_message));
+	memset(_message, 0, sizeof(_message));
 	strncpy(_message, message.c_str(), sizeof(_message) - 1);
 
 	Script::CBR<Script::CBI("OnPlayerChat")> result = true;

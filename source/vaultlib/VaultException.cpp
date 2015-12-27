@@ -28,7 +28,7 @@ VaultException::VaultException(const string& error) : error(error)
 VaultException::VaultException(const char* format, ...)
 {
 	char text[256];
-	ZeroMemory(text, sizeof(text));
+	memset(text, 0, sizeof(text));
 
 	va_list args;
 	va_start(args, format);

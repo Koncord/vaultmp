@@ -17,7 +17,7 @@
 template<typename T>
 class Database
 {
-		friend class GameFactory;
+		friend class ObjectFactory;
 
 	private:
 #ifdef VAULTMP_DEBUG

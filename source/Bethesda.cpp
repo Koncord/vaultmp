@@ -50,7 +50,7 @@ void Bethesda::Initialize()
 {
 	char curdir[MAX_PATH+1];
 	unsigned int crc;
-	ZeroMemory(curdir, sizeof(curdir));
+	memset(curdir, 0, sizeof(curdir));
 	GetModuleFileName(GetModuleHandle(nullptr), (LPTSTR) curdir, MAX_PATH);
 	PathRemoveFileSpec(curdir);
 
@@ -59,7 +59,7 @@ void Bethesda::Initialize()
 	for (const auto& modfile : modfiles)
 	{
 		char modfile_[MAX_PATH+1];
-		ZeroMemory(modfile_, sizeof(modfile_));
+		memset(modfile_, 0, sizeof(modfile_));
 		strcat(modfile_, curdir);
 		strcat(modfile_, modfile.first.c_str());
 
@@ -71,7 +71,7 @@ void Bethesda::Initialize()
 	}
 
 	char pluginsdir[MAX_PATH+1];
-	ZeroMemory(pluginsdir, sizeof(pluginsdir));
+	memset(pluginsdir, 0, sizeof(pluginsdir));
 	SHGetFolderPath(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, pluginsdir);   // SHGFP_TYPE_CURRENT
 	strcat(pluginsdir, "\\Fallout3\\plugins.vmp");
 
@@ -93,8 +93,8 @@ void Bethesda::Initialize()
 		STARTUPINFO si;
 		PROCESS_INFORMATION pi;
 
-		ZeroMemory(&si, sizeof(si));
-		ZeroMemory(&pi, sizeof(pi));
+		memset(&si, 0, sizeof(si));
+		memset(&pi, 0, sizeof(pi));
 		si.cb = sizeof(si);
 
 		string _module = "..\\Fallout3.exe";

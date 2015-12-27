@@ -277,7 +277,7 @@ void Dedicated::DedicatedThread()
 
 	try
 	{
-		GameFactory::Initialize();
+		ObjectFactory::Initialize();
 		API::Initialize();
 		Client::SetMaximumClients(connections);
 		Network::Flush();
